@@ -1,5 +1,6 @@
 import streamlit as st
 import torch
+import torch.nn as nn
 import torch.nn.functional as F
 from torchvision import transforms
 from PIL import Image
@@ -195,6 +196,52 @@ CLASS_LABELS = {
     'pituitary':  'PITUITARY TUMOR',
 }
 
+# ── Model Architecture (Must match train.py exactly) ──────────
+class BrainTumorCNN(nn.Module):
+    def __init__(self, num_classes=4):
+        super().__init__()
+        self.features = nn.Sequential(
+            nn.Conv2d(3, 32, kernel_size=3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(32, 32, kernel_size=3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(2, 2),
+            
+            nn.Conv2d(32, 64, kernel_size=3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(64, 64, kernel_size=3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(2, 2),
+            
+            nn.Conv2d(64, 128, kernel_size=3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(128, 128, kernel_size=3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(2, 2),
+            
+            nn.Conv2d(128, 256, kernel_size=3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(256, 256, kernel_size=3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(2, 2),
+        )
+        
+        self.classifier = nn.Sequential(
+            nn.Linear(256 * 8 * 8, 512),
+            nn.ReLU(inplace=True),
+            nn.Dropout(0.5),
+            nn.Linear(512, 256),
+            nn.ReLU(inplace=True),
+            nn.Dropout(0.5),
+            nn.Linear(256, num_classes)
+        )
+    
+    def forward(self, x):
+        x = self.features(x)
+        x = x.view(x.size(0), -1)
+        x = self.classifier(x)
+        return x
+
 EVAL_TF = transforms.Compose([
     transforms.Resize((128, 128)),
     transforms.ToTensor(),
@@ -205,7 +252,10 @@ EVAL_TF = transforms.Compose([
 @st.cache_resource
 def load_model():
     try:
-        model = torch.load('model.pth', map_location='cpu')
+        # On instancie la classe "from scratch"
+        model = BrainTumorCNN(num_classes=4)
+        # On charge les poids entraînés (state_dict)
+        model.load_state_dict(torch.load('model.pth', map_location='cpu'))
         model.eval()
         return model
     except Exception:
@@ -229,6 +279,13 @@ with col_left:
     st.markdown('<div class="panel"><div class="panel-label">▸ MRI Upload</div>', unsafe_allow_html=True)
     uploaded = st.file_uploader("", type=["jpg", "jpeg", "png"])
     st.markdown('</div>', unsafe_allow_html=True)
+
+    # Clear previous results when a new image is uploaded
+    if uploaded:
+        if 'last_uploaded' not in st.session_state or st.session_state['last_uploaded'] != uploaded.name:
+            if 'result' in st.session_state:
+                del st.session_state['result']
+        st.session_state['last_uploaded'] = uploaded.name
 
     if uploaded:
         img = Image.open(uploaded).convert('RGB')

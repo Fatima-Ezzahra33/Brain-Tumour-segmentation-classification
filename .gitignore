@@ -17,6 +17,7 @@ __pycache__/
 
 # Jupyter
 .ipynb_checkpoints/
+executed-main.ipynb
 
 # IDE
 .vscode/
@@ -27,3 +28,6 @@ __pycache__/
 Thumbs.db
 
 computerVision/
+
+# Exclure Dockerfile temporairement ou localement
+Dockerfile
