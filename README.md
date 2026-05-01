@@ -2,7 +2,6 @@ y# 🧠 Brain Tumor Classification System
 
 A deep learning-based brain tumor detection and classification system using Convolutional Neural Networks (CNN) with PyTorch. This project classifies MRI brain scans into four categories: Glioma, Meningioma, Pituitary, and No Tumor.
 
-![Brain Tumor Classification](https://img.shields.io/badge/Deep-Learning-CNN-orange)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red)
 ![Streamlit](https://img.shields.io/badge/Streamlit-WebApp-blue)
 ![Python](https://img.shields.io/badge/Python-3.8+-green)
