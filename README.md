@@ -1,4 +1,4 @@
-# 🧠 Brain Tumor Classification System
+y# 🧠 Brain Tumor Classification System
 
 A deep learning-based brain tumor detection and classification system using Convolutional Neural Networks (CNN) with PyTorch. This project classifies MRI brain scans into four categories: Glioma, Meningioma, Pituitary, and No Tumor.
 
@@ -204,23 +204,31 @@ The app will open in your browser at `http://localhost:8501`
 
 ## 📈 Results
 
-### Model Performance
+### Model Performance Comparison
 
-| Metric                   | Score |
-| ------------------------ | ----- |
-| **Accuracy**             | ~95%+ |
-| **Precision** (weighted) | ~95%  |
-| **Recall** (weighted)    | ~95%  |
-| **F1-Score** (weighted)  | ~95%  |
+| Metric        | Before (model.pth) | After (model2.pth) | Improvement |
+| ------------- | ------------------ | ------------------ | ----------- |
+| **Accuracy**  | 75.31%             | **89.44%**         | **+14.13%** |
+| **Precision** | 0.755              | **0.897**          | +0.142      |
+| **Recall**    | 0.753              | **0.894**          | +0.141      |
+| **F1-Score**  | 0.737              | **0.893**          | +0.156      |
 
-### Per-Class Performance
+### Per-Class Performance (After Training)
 
-| Class      | Precision | Recall    | F1-Score  | AUC   |
-| ---------- | --------- | --------- | --------- | ----- |
-| Glioma     | High      | High      | High      | ~0.99 |
-| Meningioma | High      | High      | High      | ~0.98 |
-| No Tumor   | Very High | Very High | Very High | ~1.00 |
-| Pituitary  | High      | High      | High      | ~0.99 |
+| Class          | Recall | F1-Score | Improvement |
+| -------------- | ------ | -------- | ----------- |
+| **Glioma**     | 73.8%  | 0.818    | +20.3%      |
+| **Meningioma** | 90.7%  | 0.856    | +38.2%      |
+| **No Tumor**   | -      | 0.943    | +0.110      |
+| **Pituitary**  | -      | 0.952    | +0.073      |
+
+### Key Achievements
+
+✅ **+14.13% accuracy improvement** (75.31% → 89.44%)  
+✅ **+38.2% recall improvement** on Meningioma (hardest class)  
+✅ **+20.3% recall improvement** on Glioma  
+✅ **AUC > 0.97** for all classes  
+✅ **Robust model** with targeted augmentation strategy
 
 ### Generated Visualizations
 
