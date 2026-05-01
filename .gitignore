@@ -1,7 +1,6 @@
 # Data & Models
 data/
 *.jpg
-*.png
 *.pth
 *.pt
 *.h5
