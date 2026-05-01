@@ -288,7 +288,7 @@ The Streamlit web application provides an intuitive interface for brain tumor pr
 
 ### Screenshot
 
-![Web Application](results/training2/fig8_hard_cases_glioma_meningioma.png)
+![Web Application](results/streamlitApp.png)
 
 ---
 
