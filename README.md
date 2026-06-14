@@ -9,6 +9,7 @@ A deep learning-based brain tumor detection and classification system using Conv
 ## 🏫 Academic Information
  
 > This work was completed as part of the Image Processing and Computer Vision module at the National School of Applied Sciences of Tangier (ENSA Tangier), under the supervision of **Pr. LACHKAR Abdelmonaime**.
+
 > **Authors :**
 > - ABDESSETTAR Fatima-Ezzahra
 > - EL ABAID Oumniya
