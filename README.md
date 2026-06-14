@@ -6,7 +6,12 @@ A deep learning-based brain tumor detection and classification system using Conv
 ![Streamlit](https://img.shields.io/badge/Streamlit-WebApp-blue)
 ![Python](https://img.shields.io/badge/Python-3.8+-green)
 
----
+## 🏫 Academic Information
+ 
+> This work was completed as part of the Image Processing and Computer Vision module at the National School of Applied Sciences of Tangier (ENSA Tangier), under the supervision of **Pr. LACHKAR Abdelmonaime**.
+> **Authors :**
+> - ABDESSETTAR Fatima-Ezzahra
+> - EL ABAID Oumniya
 
 ## 📋 Table of Contents
 
@@ -20,8 +25,6 @@ A deep learning-based brain tumor detection and classification system using Conv
 8. [Web Application](#-web-application)
 9. [Project Structure](#-project-structure)
 10. [License](#-license)
-
----
 
 ## 🖼️ Project Overview
 
@@ -42,8 +45,6 @@ This project implements a computer vision system for automatic brain tumor detec
 | **Meningioma** | Tumors of the meninges (brain lining)  |
 | **Pituitary**  | Tumors of the pituitary gland          |
 | **No Tumor**   | Healthy brain (no tumor detected)      |
-
----
 
 ## 📊 Dataset
 
@@ -69,8 +70,6 @@ data/
 - **Total Testing Images**: ~400+ images
 - **Image Format**: JPG (128x128 pixels, RGB)
 - **Classes**: 4 (balanced dataset)
-
----
 
 ## 🔧 MRI Denoising Autoencoder
 
@@ -175,8 +174,6 @@ streamlit     # Web application framework
 typing_extensions  # Type hints
 ```
 
----
-
 ## 🚀 Usage
 
 ### Training the Autoencoder
@@ -253,7 +250,6 @@ streamlit run app.py
 
 The app will open in your browser at `http://localhost:8501`
 
----
 
 ## 📈 Results
 
@@ -322,8 +318,6 @@ results/
 
 ![Grad-CAM Analysis](results/training2/fig7_gradcam_analysis.png)
 
----
-
 ## 🌐 Web Application
 
 The Streamlit web application provides an intuitive interface for brain tumor prediction:
@@ -347,7 +341,6 @@ The Streamlit web application provides an intuitive interface for brain tumor pr
 
 ![Web Application](results/streamlitApp.png)
 
----
 
 ## 📁 Project Structure
 
@@ -375,8 +368,6 @@ Brain_Segmentation/
 ├── autoencoder.pth           # Trained denoising autoencoder
 └── README.md                # This file
 ```
-
----
 
 ## 🔧 Technical Details
 
@@ -433,27 +424,13 @@ The enhanced training uses Albumentations for targeted augmentation:
   - HorizontalFlip
   - RandomRotate90
 
----
-
-## 📝 License
-
-This project is for educational and research purposes. The dataset used is from the [Brain Tumor Classification Dataset](https://www.kaggle.com/datasets/sartajbhuvaji/brain-tumor-classification-mri) on Kaggle.
-
----
-
 ## 🙏 Acknowledgments
 
-- Dataset: [Brain Tumor Classification MRI](https://www.kaggle.com/datasets/sartajbhuvaji/brain-tumor-classification-mri)
-- Framework: [PyTorch](https://pytorch.org)
-- Web App: [Streamlit](https://streamlit.io)
-
----
+- The authors would like to express their sincere gratitude to **Pr. LACHKAR Abdelmonaime** for his valuable guidance, supervision, and support throughout the development of this project.
 
 ## 📧 Contact
 
 For questions or suggestions, please open an issue on GitHub.
-
----
 
 <div align="center">
 
